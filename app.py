@@ -162,4 +162,4 @@ def api_filter():
     return jsonify(results)
 
 
-app.run()
+app.run(port=80)
