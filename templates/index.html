@@ -2,9 +2,25 @@
 
 {% block content %}
     <h1>{% block title %} Doors {% endblock %}</h1>
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Price</th>
+            <th>Size</th>
+            <th>Color</th>
+            <th>Image</th>
+        </tr>
+    </table>
     {% for row in rows %}
-        <div>Door:</div>
-        <div>{{ row }}</div>
+        <tr>
+            <td>{{ row[0] }}</td>
+            <td>{{ row[1] }}</td>
+            <td>{{ row[2] }}</td>
+            <td>{{ row[3] }}</td>
+            <td>{{ row[4] }}</td>
+            <td><img alt="" src="static/{{ row[5] }}"></td>
+        </tr>
     {% endfor %}
 {% endblock %}
 

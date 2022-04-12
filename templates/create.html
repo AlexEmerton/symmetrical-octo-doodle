@@ -2,15 +2,15 @@
 
 {% block content %}
     <h1>{% block title %} Add a New Door {% endblock %}</h1>
-    <form method="post">
-        <label for="title">Name</label>
+    <form method="post" enctype="multipart/form-data">
+        <label for="name">Name</label>
         <br>
         <input type="text" name="name"
                placeholder="Door name"
                value="{{ request.form['name'] }}"></input>
         <br>
 
-        <label for="title">Price</label>
+        <label for="price">Price</label>
         <br>
         <input type="text" name="price"
                placeholder="Door price"
@@ -18,18 +18,24 @@
         <br>
 
 
-        <label for="title">Size</label>
+        <label for="size">Size</label>
         <br>
         <input type="text" name="size"
                placeholder="Door size i.e (123x123)"
                value="{{ request.form['size'] }}"></input>
         <br>
 
-        <label for="title">Color</label>
+        <label for="colour">Color</label>
         <br>
         <input type="text" name="color"
                placeholder="Door color"
                value="{{ request.form['color'] }}"></input>
+        <br>
+
+        <label for="image">Image</label>
+        <br>
+        <input type="file" name="image" accept="image/*"
+               value="{{ request.form['file'] }}"></input>
         <br>
 
 

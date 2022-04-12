@@ -1,15 +1,13 @@
 import logging
+import os
 
 import flask
 from flask import request, jsonify, render_template, flash, url_for
 from werkzeug.exceptions import InternalServerError
-from werkzeug.utils import redirect
+from werkzeug.utils import redirect, secure_filename
 
 from database.connection import Database
 from utils.helpers import get_from_env, dict_factory
-
-app = flask.Flask(__name__)
-app.config["DEBUG"] = True
 
 DATABASE = get_from_env("DATABASE")
 HOST = get_from_env("DB_HOST")
@@ -17,6 +15,12 @@ PORT = get_from_env("DB_PORT")
 USER = get_from_env("DB_USER")
 PASS = get_from_env("DB_PASS")
 CONNECTION = Database(DATABASE, USER, PASS, HOST, PORT)
+UPLOAD_FOLDER = 'static'
+
+app = flask.Flask(__name__)
+app.config["DEBUG"] = True
+app.secret_key = 'eW96YXVr'
+app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
 logging.basicConfig(filename='record.log', level=logging.DEBUG,
                     format=f'%(asctime)s %(levelname)s %(name)s %(threadName)s : %(message)s')
@@ -24,7 +28,7 @@ logging.basicConfig(filename='record.log', level=logging.DEBUG,
 
 @app.route('/', methods=['GET'])
 def home():
-    rows = CONNECTION.execute_select_statement("*", "doors")
+    rows = CONNECTION.execute_select_statement("*", "doors_")
     return render_template("index.html", rows=rows)
 
 
@@ -35,6 +39,11 @@ def add_new_door():
         price = request.form['price']
         size = request.form['size']
         color = request.form['color']
+        image = request.files['image']
+
+        if image.filename != '':
+            filename = secure_filename(image.filename)
+            image.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
 
         if not name:
             flash('Name is required!')
@@ -44,17 +53,13 @@ def add_new_door():
             flash('Size is required!')
         elif not color:
             flash('Color is required!')
+        elif not image:
+            flash('Image is required!')
         else:
-            door = {
-                'name': name,
-                'price': price,
-                'size': size,
-                'color': color
-            }
-            query = f"0, \"{door['name']}\", {door['price']}, \"{door['size']}\", \"{door['color']}\""
+            query = f"0, \"{name}\", {price}, \"{size}\", \"{color}\", \"{image.filename}\""
 
             CONNECTION.row_factory = dict_factory
-            CONNECTION.execute_insert_statement("doors", query)
+            CONNECTION.execute_insert_statement("doors_", query)
             return redirect(url_for('.index'))
 
     return render_template("create.html")
@@ -74,7 +79,7 @@ def login():
 @app.route('/api/v1/resources/doors/all', methods=['GET'])
 def api_all():
     CONNECTION.row_factory = dict_factory
-    all_doors = CONNECTION.execute_select_statement("*", "doors")
+    all_doors = CONNECTION.execute_select_statement("*", "doors_")
 
     return jsonify(all_doors)
 
@@ -102,7 +107,7 @@ def add_door():
     query = f"{data['id']}, \"{data['name']}\", {data['price']}, \"{data['size']}\", \"{data['color']}\""
 
     CONNECTION.row_factory = dict_factory
-    results = CONNECTION.execute_insert_statement("doors", query)
+    results = CONNECTION.execute_insert_statement("doors_", query)
 
     return jsonify(results)
 
@@ -122,7 +127,7 @@ def update_door(door_id):
     for key in data.keys():
         update_query += f"{key} = \"{data[key]}\", "
     update_query = update_query[:-2]
-    results = CONNECTION.execute_update_statement("doors", update_query, "id", door_id)
+    results = CONNECTION.execute_update_statement("doors_", update_query, "id", door_id)
 
     return jsonify(results)
 
@@ -157,7 +162,7 @@ def api_filter():
     query = query[:-4] + ';'
 
     CONNECTION.row_factory = dict_factory
-    results = CONNECTION.execute_select_where("*", "doors", query)
+    results = CONNECTION.execute_select_where("*", "doors_", query)
 
     return jsonify(results)
 
