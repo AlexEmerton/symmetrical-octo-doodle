@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>{% block title %} Doors {% endblock %}</h1>
+    {% for row in rows %}
+        <div>Door:</div>
+        <div>{{ row }}</div>
+    {% endfor %}
+{% endblock %}
+
