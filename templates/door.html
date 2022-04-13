@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,maximum-scale=1,minimum-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Portfolio</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/vendor.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/main.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/assortiment.css') }}">
+</head>
+
+<body>
+<div class="page-wrapper">
+    <header class="header">
+        <div class="container">
+            <div class="header__main">
+                <a href="#" class="logo">
+                    <img src="{{ url_for('static', filename='images/logo.png') }}" alt="">
+                </a>
+                <nav class="nav__menu">
+                    <ul class="menu">
+                        <li class="menu-item"><a href="#">Ассортимент <img class="ml-1"
+                                                                           src="{{ url_for('static', filename='images/svg/Vector.svg') }}"
+                                                                           alt=""></a>
+                            <ul class="sub-menu">
+                                <li><a class="sub-item" href="door.html">Двери</a>
+                                </li>
+                                <li><a class="sub-item" href="furniture.html">Мебель</a>
+                                </li>
+                                <li><a class="sub-item" href="camine.html">Камины</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="menu-item"><a href="#">О нас</a>
+                        </li>
+                        <li class="menu-item"><a href="#">Контакты</a>
+                        </li>
+                        <li class="menu-item">
+                            <a href="#" class="d-flex">
+                                <img class="mr-1" src="{{ url_for('static', filename='images/wold/header4.png') }}"
+                                     alt="">RU</a>
+                            <ul class="sub-menu sub-language">
+                                <li>
+                                    <a class="sub-item d-flex" href="#">
+                                        <img src="{{ url_for('static', filename='images/wold/header1.png') }}" alt="">EN</a>
+                                </li>
+                                <li>
+                                    <a class="sub-item d-flex" href="#">
+                                        <img src="{{ url_for('static', filename='images/wold/header2.png') }}" alt="">UZ</a>
+                                </li>
+                                <li>
+                                    <a class="sub-item d-flex" href="#">
+                                        <img src="{{ url_for('static', filename='images/wold/header3.png') }}" alt="">RU</a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+    <div class="page-content">
+        <section class="hero">
+            <img src="./{{ url_for('static', filename='images/assortiment/hero.jpg') }}" alt="" class="hero-img">
+            <div class="box container">
+                <h2 class="box__title">Наша продукция</h2>
+                <div class="box__line"></div>
+                <form class="filter-selects">
+                    <select name="cat1" id="" class=" filter-select company">
+                        <option value="" selected disabled>Выберите компанию</option>
+                        <option value="1">Бульдорс</option>
+                        <option value="2">Dara</option>
+                        <option value="3">Гардиан</option>
+                    </select>
+                    <select name="cat2" id="" class="filter-select category">
+                        <option value="" selected disabled>Сортировать по цене</option>
+                        <option value="3">По возрастанию</option>
+                        <option value="4">По убыванию</option>
+                    </select>
+                    <button type="submit" class="apply">Применить</button>
+                    <button type="button" class="reset">Отменить</button>
+                </form>
+            </div>
+        </section>
+        <section class="product-cards">
+            <div class="product-cards__inner container">
+
+                {% block content %}
+                {% for row in rows %}
+                <div data-id="{{ row[0] }}" class="products-card__card">
+                    <div class="products-card__item">
+                        <p class="products-card__title">{{ row[1] }}</p>
+                        <img class="products-card__img" src="static/{{ row[5] }}"
+                             alt="">
+                        <div class="products-card__title">{{ row[2] }}</div>
+                    </div>
+                    <div class="products-card__content"><a href="singleProduct.html" class="products-card__text">Подробнее</a>
+                    </div>
+                </div>
+                {% endfor %}
+                {% endblock %}
+
+                <div data-id="1" class="products-card__card">
+                    <div class="products-card__item">
+                        <p class="products-card__title">Profil 1</p>
+                        <img class="products-card__img" src="{{ url_for('static', filename='images/doors/Bafa1.jpg') }}"
+                             alt="">
+                        <div class="products-card__title">920 000</div>
+                    </div>
+                    <div class="products-card__content"><a href="singleProduct.html" class="products-card__text">Подробнее</a>
+                    </div>
+                </div>
+                <div data-id="2" class="products-card__card">
+                    <div class="products-card__item">
+                        <p class="products-card__title">Crystal 1</p>
+                        <img class="products-card__img" src="{{ url_for('static', filename='images/doors/Bafa2.jpg') }}"
+                             alt="">
+                        <div class="products-card__title">1 260 000 сум</div>
+                    </div>
+                    <div class="products-card__content"><a href="singleProduct.html" class="products-card__text">Подробнее</a>
+                    </div>
+                </div>
+                <div data-id="3" class="products-card__card">
+                    <div class="products-card__item">
+                        <p class="products-card__title">Eco</p>
+                        <img class="products-card__img" src="{{ url_for('static', filename='images/doors/Bul1.png') }}"
+                             alt="">
+                        <div class="products-card__title">2 850 000 сум</div>
+                    </div>
+                    <div class="products-card__content"><a href="singleProduct.html" class="products-card__text">Подробнее</a>
+                    </div>
+                </div>
+                <div data-id="4" class="products-card__card">
+                    <div class="products-card__item">
+                        <p class="products-card__title">Standart 90</p>
+                        <img class="products-card__img" src="{{ url_for('static', filename='images/doors/Bul2.png') }}"
+                             alt="">
+                        <div class="products-card__title">3 700 000 сум</div>
+                    </div>
+                    <div class="products-card__content"><a href="singleProduct.html" class="products-card__text">Подробнее</a>
+                    </div>
+                </div>
+                <div data-id="1" class="products-card__card">
+                    <div class="products-card__item">
+                        <p class="products-card__title">Палермо</p>
+                        <img class="products-card__img" src="{{ url_for('static', filename='images/doors/Gar1.jpg') }}"
+                             alt="">
+                        <div class="products-card__title">22 700 000 сум</div>
+                    </div>
+                    <div class="products-card__content"><a href="singleProduct.html" class="products-card__text">Подробнее</a>
+                    </div>
+                </div>
+                <div data-id="2" class="products-card__card">
+                    <div class="products-card__item">
+                        <p class="products-card__title">Мистраль</p>
+                        <img class="products-card__img" src="{{ url_for('static', filename='images/doors/Gar2.jpg') }}"
+                             alt="">
+                        <div class="products-card__title">18 200 000 сум</div>
+                    </div>
+                    <div class="products-card__content"><a href="singleProduct.html" class="products-card__text">Подробнее</a>
+                    </div>
+                </div>
+
+
+            </div>
+        </section>
+    </div>
+    <footer class="footer">
+        <div class="container">
+            <div class="footer__inner">
+                <div class="footer__logo">
+                    <img src="{{ url_for('static', filename='images/footerlogo.png') }}" alt="">
+                </div>
+                <ul class="footer__list">
+                    <li class="footer__list-title">нАВИГАЦИЯ</li>
+                    <li><a href="#" class="footer__list-link">На главную</a>
+                    </li>
+                    <li><a href="#" class="footer__list-link">Ассортименты</a>
+                    </li>
+                    <li><a href="#" class="footer__list-link">О нас</a>
+                    </li>
+                    <li><a href="#" class="footer__list-link">Контакты</a>
+                    </li>
+                </ul>
+                <ul class="footer__list">
+                    <li class="footer__list-title">Контакты</li>
+                    <li><a href="tel:+998994424241" class="footer__list-link">t. +99899 442 42 41</a>
+                    </li>
+                    <li><a href="mailto:E. infocom.@gmail.com" class="footer__list-link">E. infocom.@gmail.com</a>
+                    </li>
+                </ul>
+                <ul class="footer__list">
+                    <li class="footer__list-title">Соц-сети</li>
+                    <div class="social"><a href="#"><i class="fab fa-instagram"></i></a> <a href="#"><i
+                            class="fab fa-youtube"></i></a> <a href="#"><i class="fab fa-facebook-square"></i></a> <a
+                            href="#"><i class="fab fa-telegram-plane"></i></a>
+                    </div>
+                </ul>
+            </div>
+        </div>
+        <a href="#" class="footer__home">
+            <img src="{{ url_for('static', filename='images/svg/arrow.svg') }}" alt="">
+        </a>
+        <div class="footer__bottom">
+            <div class="container">
+                <p>2021 megapolis-tk.uz</p>
+            </div>
+        </div>
+    </footer>
+</div>
+<script>
+        document.querySelector(".filter-selects").addEventListener("submit", (e)=>{
+            e.preventDefault();
+            const productsCards = document.querySelectorAll(".products-card__card");
+
+            productsCards.forEach(card => {
+                card.style.display="block"
+            })
+           console.log(e.target.cat1.value) 
+            const cat1 = e.target.cat1.value;
+            const cat2 = e.target.cat2.value;
+            // const cat3 = e.target.cat3.value;
+            
+            const whiteList = [cat1, cat2];
+
+            productsCards.forEach(card => {
+                if(!whiteList.includes(card.getAttribute("data-id"))) {
+                    card.style.display="none"
+                }
+            })
+        })
+
+        document.querySelector(".reset").addEventListener("click", (e)=>{
+            const productsCards = document.querySelectorAll(".products-card__card");
+
+            productsCards.forEach(card => {
+                card.style.display="block"
+            })
+            
+        })
+
+        
+
+
+</script>
+<script src="{{ url_for('static', filename='scripts/main.min.js') }}"></script>
+</body>
+
+</html>

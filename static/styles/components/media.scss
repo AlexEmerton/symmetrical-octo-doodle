@@ -1,0 +1,133 @@
+@media (max-width: 1155px) {
+   .abaut__inner {
+      grid-template-columns: repeat(3, 1fr) !important;
+      row-gap: 40px;
+   }
+   .products__inner {
+      grid-template-columns: repeat(2, 1fr) !important;
+      column-gap: 50px;
+      row-gap: 20px;
+   }
+   .partners__content {
+      column-gap: 24px !important;
+   }
+   .partners__item {
+      margin-bottom: 20px !important;
+   }
+   .partners__inner {
+      flex-wrap: wrap;
+   }
+   .contact__container {
+      flex-direction: column;
+   }
+   .footer__logo {
+      margin-right: 20px;
+   }
+}
+@media (max-width: 992px) {
+   .abaut__inner {
+      grid-template-columns: repeat(2, 1fr) !important;
+      row-gap: 40px;
+   }
+   .whyus__inner {
+      grid-template-columns: repeat(2, 1fr) !important;
+   }
+   .footer__inner {
+      flex-direction: column;
+   }
+   .footer__list {
+      width: 100%;
+      margin-left: 45px;
+   }
+   .footer__logo {
+      margin-bottom: 20px;
+   }
+   .swiper-button-next,
+   .swiper-button-prev {
+      top: 35% !important;
+   }
+}
+@media (max-width: 768px) {
+   .header .nav__menu .menu-item {
+      margin-left: 10px !important;
+   }
+   .header .nav__menu .menu-item a {
+      font-size: 14px !important;
+   }
+   .header__main .logo img {
+      width: 150px;
+   }
+   .abaut__title {
+      font-size: 18px !important;
+   }
+   .whyus__item {
+      padding: 35px 15px;
+   }
+   .whyus__name {
+      font-size: 14px;
+      font-weight: 500;
+   }
+   .whyus__inner {
+      padding: 0 10px !important;
+   }
+
+   .partners__content {
+      grid-template-columns: 100% !important;
+   }
+   .contact__inner {
+      flex-direction: column;
+   }
+   .footer__list {
+      width: 100%;
+      margin-left: 25px;
+   }
+   .sec-padding {
+      padding: 40px 0 !important;
+   }
+   .box__title {
+      font-size: 24px !important;
+   }
+}
+@media (max-width: 520px) {
+   .abaut__inner {
+      grid-template-columns: repeat(1, 1fr) !important;
+      gap: 40px;
+   }
+   .products__inner {
+      grid-template-columns: repeat(1, 1fr) !important;
+      column-gap: 50px;
+      row-gap: 20px;
+   }
+   .whyus__inner {
+      grid-template-columns: repeat(1, 1fr) !important;
+   }
+   .maps {
+      padding-bottom: 20px !important;
+   }
+   .footer__inner {
+      padding: 30px;
+   }
+   .sec-padding {
+      padding: 20px 0 !important;
+   }
+   .header .nav__menu .menu-item:nth-child(2) {
+      display: none;
+   }
+   .header .nav__menu .menu-item:nth-child(3) {
+      display: none;
+   }
+   .header__main .logo img {
+      width: 100px;
+   }
+   .ml-1 {
+      margin-left: 0 !important;
+   }
+   .swiper-button-next,
+   .swiper-button-prev {
+      top: 25% !important;
+   }
+}
+@media (max-width: 1150px) {
+}
+@media (max-width: 1150px) {
+}

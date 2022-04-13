@@ -32,6 +32,12 @@ def home():
     return render_template("index.html", rows=rows)
 
 
+@app.route('/door', methods=['GET'])
+def doors():
+    rows = CONNECTION.execute_select_statement("*", "doors_")
+    return render_template("door.html", rows=rows)
+
+
 @app.route('/new-door', methods=['GET', 'POST'])
 def add_new_door():
     if request.method == 'POST':

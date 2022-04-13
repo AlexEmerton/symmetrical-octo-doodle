@@ -1,31 +1,372 @@
-
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
-    <title>{% block title %} {% endblock %} - ZAUK doors</title>
-    <style>
-        .message {
-            padding: 10px;
-            margin: 5px;
-            background-color: #f3f3f3
-        }
-        nav a {
-            color: #d64161;
-            font-size: 3em;
-            margin-left: 50px;
-            text-decoration: none;
-        }
-
-    </style>
+    <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,maximum-scale=1,minimum-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/vendor.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/main.css') }}">
+    <title>Portfolio</title>
 </head>
+
 <body>
-    <nav>
-        <a href="#">About</a>
-    </nav>
-    <hr>
-    <div class="content">
-        {% block content %} {% endblock %}
+<div class="page-wrapper">
+    <header class="header">
+        <div class="container">
+            <div class="header__main">
+                <a href="#" class="logo">
+                    <img src="{{ url_for('static', filename='images/logo.png') }}" alt="">
+                </a>
+                <nav class="nav__menu">
+                    <ul class="menu">
+                        <li class="menu-item"><a href="#">Ассортимент <img class="ml-1"
+                                                                           src="{{ url_for('static', filename='images/svg/Vector.svg') }}"
+                                                                           alt=""></a>
+                            <ul class="sub-menu">
+                                <li><a class="sub-item" href="door">Двери</a>
+                                </li>
+                                <li><a class="sub-item" href="furniture.html">Мебель</a>
+                                </li>
+                                <li><a class="sub-item" href="camine.html">Камины</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="menu-item"><a href="#">О нас</a>
+                        </li>
+                        <li class="menu-item"><a href="#">Контакты</a>
+                        </li>
+                        <li class="menu-item">
+                            <a href="#" class="d-flex">
+                                <img class="mr-1" src="{{ url_for('static', filename='images/wold/header4.png') }}"
+                                     alt="">RU</a>
+                            <ul class="sub-menu sub-language">
+                                <li>
+                                    <a class="sub-item d-flex" href="#">
+                                        <img src="{{ url_for('static', filename='images/wold/header1.png') }}" alt="">EN</a>
+                                </li>
+                                <li>
+                                    <a class="sub-item d-flex" href="#">
+                                        <img src="{{ url_for('static', filename='images/wold/header2.png') }}" alt="">UZ</a>
+                                </li>
+                                <li>
+                                    <a class="sub-item d-flex" href="#">
+                                        <img src="{{ url_for('static', filename='images/wold/header3.png') }}" alt="">RU</a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+    <div class="page-content">
+        <section class="home">
+            <div class="swiper home__swiper">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <img src="{{ url_for('static', filename='images/slider.png') }}" alt="">
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="{{ url_for('static', filename='images/slider1.png') }}" alt="">
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="{{ url_for('static', filename='images/slider.png') }}" alt="">
+                    </div>
+                </div>
+                <div class="swiper-button-prev"><i class="fas fa-arrow-left"></i>
+                </div>
+                <div class="swiper-button-next"><i class="fas fa-arrow-right"></i>
+                </div>
+            </div>
+        </section>
+        <section class="abaut sec-padding">
+            <div class="container">
+                <div class="box">
+                    <h2 class="box__title">О Нас</h2>
+                    <div class="box__line"></div>
+                    <p class="box__text">Megapolis - это магазин-шоурум, в котором вы можете найти широкий спектр
+                        товаров для дома. Мы поможем вам с обустройством вашего жилища от порога до зоны отдыха, ведь мы
+                        предлагаем вам:</p>
+                </div>
+                <div class="abaut__inner">
+                    <div class="abaut__card">
+                        <div class="abaut__item">
+                            <img class="abaut__img"
+                                 src="{{ url_for('static', filename='images/about-item/image 1.png') }}" alt="">
+                            <div class="abaut__title">Входные двери</div>
+                        </div>
+                        <div class="abaut__content"><a href="#" class="abaut__text">Узнать больше</a>
+                        </div>
+                    </div>
+                    <div class="abaut__card">
+                        <div class="abaut__item">
+                            <img class="abaut__img"
+                                 src="{{ url_for('static', filename='images/about-item/image 3.png') }}" alt="">
+                            <div class="abaut__title">Межкомнатные двери</div>
+                        </div>
+                        <div class="abaut__content blue"><a href="#" class="abaut__text">Узнать больше</a>
+                        </div>
+                    </div>
+                    <div class="abaut__card">
+                        <div class="abaut__item">
+                            <img class="abaut__img"
+                                 src="{{ url_for('static', filename='images/about-item/image 4.png') }}" alt="">
+                            <div class="abaut__title">Мебель</div>
+                        </div>
+                        <div class="abaut__content yellow"><a href="#" class="abaut__text">Узнать больше</a>
+                        </div>
+                    </div>
+                    <div class="abaut__card">
+                        <div class="abaut__item">
+                            <img class="abaut__img"
+                                 src="{{ url_for('static', filename='images/about-item/image 2.png') }}" alt="">
+                            <div class="abaut__title">Камины</div>
+                        </div>
+                        <div class="abaut__content darkblue"><a href="#" class="abaut__text">Узнать больше</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="products sec-padding">
+            <div class="products__title">Топ товары</div>
+            <div class="container">
+                <div class="products__inner">
+                    <div class="products__item">
+                        <img src="{{ url_for('static', filename='images/top/buldoors.png') }}" alt="">
+                        <div class="products__activity">Бульдорс</div>
+                        <div class="products__num">2 850 000 сум</div>
+                    </div>
+                    <div class="products__item">
+                        <img src="{{ url_for('static', filename='images/top/bafa.jpg') }}" alt="">
+                        <div class="products__activity">Bafa</div>
+                        <div class="products__num">1 260 000 сум</div>
+                    </div>
+                    <div class="products__item">
+                        <img src="{{ url_for('static', filename='images/top/aiko.jpg') }}" alt="">
+                        <div class="products__activity">AIKO</div>
+                        <div class="products__num">1 155 000 сум</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="whyus sec-padding">
+            <div class="container">
+                <div class="box">
+                    <h2 class="box__title">Почему мы?</h2>
+                    <div class="box__line"></div>
+                    <p class="box__text">Одной из наших приоритетных задач является создание уюта и комфорта в вашем
+                        доме. Также мы считаем что комфорт - это прежде всего безопасность и уверенность в завтрашнем
+                        дне, поэтому мы предлагаем вам продукцию высочайшего качества.
+                        На многие единицы нашей продукции действует гарантия.</p>
+                </div>
+                <div class="whyus__inner">
+                    <div class="whyus__item">
+                        <div class="whyus__bg"></div>
+                        <img src="{{ url_for('static', filename='images/whyus/whyus1.png') }}" alt="">
+                        <div class="whyus__name">Светлый и просторный шоурум</div>
+                    </div>
+                    <div class="whyus__item">
+                        <div class="whyus__bg"></div>
+                        <img src="{{ url_for('static', filename='images/whyus/whyus2.png') }}" alt="">
+                        <div class="whyus__name">Широкий спектр товаров для дома</div>
+                    </div>
+                    <div class="whyus__item">
+                        <div class="whyus__bg"></div>
+                        <img src="{{ url_for('static', filename='images/whyus/whyus3.png') }}" alt="">
+                        <div class="whyus__name">Продукция ведущих производителей</div>
+                    </div>
+                    <div class="whyus__item">
+                        <div class="whyus__bg"></div>
+                        <img src="{{ url_for('static', filename='images/whyus/whyus4.png') }}" alt="">
+                        <div class="whyus__name">Нестандартные размеры дверей на заказ</div>
+                    </div>
+                    <div class="whyus__item">
+                        <div class="whyus__bg"></div>
+                        <img src="{{ url_for('static', filename='images/whyus/whyus5.png') }}" alt="">
+                        <div class="whyus__name">Отличное соотношение цены и качества</div>
+                    </div>
+                    <div class="whyus__item">
+                        <div class="whyus__bg"></div>
+                        <img src="{{ url_for('static', filename='images/whyus/whyus6.png') }}" alt="">
+                        <div class="whyus__name">Широкий диапазон цен</div>
+                    </div>
+                    <div class="whyus__item">
+                        <div class="whyus__bg"></div>
+                        <img src="{{ url_for('static', filename='images/whyus/whyus7.png') }}" alt="">
+                        <div class="whyus__name">Гарантия на продукцию</div>
+                    </div>
+                    <div class="whyus__item">
+                        <div class="whyus__bg"></div>
+                        <img src="{{ url_for('static', filename='images/whyus/whyus8.png') }}" alt="">
+                        <div class="whyus__name">Бесплатный замер дверного проёма</div>
+                    </div>
+                    <div class="whyus__item">
+                        <div class="whyus__bg"></div>
+                        <img src="{{ url_for('static', filename='images/whyus/whyus9.png') }}" alt="">
+                        <div class="whyus__name">Бесплатная доставка дверей до подъезда</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="partners sec-padding">
+            <div class="container">
+                <div class="partners__title">Наши партнеры</div>
+                <div class="partners__inner">
+                    <div class="partners__content">
+                        <div class="partners__item">
+                            <img src="{{ url_for('static', filename='images/partners/partners1.png') }}" alt="">
+                        </div>
+                        <div class="partners__item">
+                            <img src="{{ url_for('static', filename='images/partners/partners2.png') }}" alt="">
+                        </div>
+                    </div>
+                    <div class="partners__content">
+                        <div style="border:3px solid #fd1930" class="partners__item">
+                            <img src="{{ url_for('static', filename='images/partners/partners3.png') }}" alt="">
+                        </div>
+                        <div style="border:3px solid #1f1a17" class="partners__item">
+                            <img src="{{ url_for('static', filename='images/partners/partners24.png') }}" alt="">
+                        </div>
+                    </div>
+                    <div class="partners__content">
+                        <div style="border:3px solid #8f0094" class="partners__item">
+                            <img src="{{ url_for('static', filename='images/partners/partners25.png') }}" alt="">
+                        </div>
+                        <div style="border:3px solid #fd1930" class="partners__item">
+                            <img src="{{ url_for('static', filename='images/partners/partners6.png') }}" alt="">
+                        </div>
+                    </div>
+                    <div class="partners__content">
+                        <div style="border:3px solid #2b5c08" class="partners__item">
+                            <img src="{{ url_for('static', filename='images/partners/partners7.png') }}" alt="">
+                        </div>
+                        <div style="border:3px solid #1f1a17" class="partners__item">
+                            <img src="{{ url_for('static', filename='images/partners/partners8.png') }}" alt="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="contact sec-padding">
+            <div class="container">
+                <div class="box">
+                    <h2 class="box__title">Связаться с нами</h2>
+                    <div class="box__line"></div>
+                </div>
+                <div class="contact__inner">
+                    <div class="contact__left">
+                        <div class="contact__item">
+                            <div class="contact__img">
+                                <img src="{{ url_for('static', filename='images/contact/contact1.png') }}" alt="">
+                            </div>
+                            <div class="contact__info">
+                                <div class="contact__info-subtitle">Телефон</div>
+                                <a class="contact__info-link" href="tel:+998(97) 767-90-50">+998(97) 767-90-50</a>
+                            </div>
+                        </div>
+                        <div class="contact__item">
+                            <div class="contact__img">
+                                <img src="{{ url_for('static', filename='images/contact/contact2.png') }}" alt="">
+                            </div>
+                            <div class="contact__info">
+                                <div class="contact__info-subtitle">E-mail</div>
+                                <a class="contact__info-link"
+                                   href="mailto:buldoors.uz@gmail.com">buldoors.uz@gmail.com</a>
+                            </div>
+                        </div>
+                        <div class="contact__item">
+                            <div class="contact__img">
+                                <img src="{{ url_for('static', filename='images/contact/contact3.png') }}" alt="">
+                            </div>
+                            <div class="contact__info">
+                                <div class="contact__info-subtitle">Telegram</div>
+                                <a class="contact__info-link" href="https://t.me/megapolis_home">+998903749050</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="contact__right">
+                        <div class="contact__container">
+                            <form action="" class="form">
+                                <div class="form__box"><span>ФИО</span>
+                                    <input class="form__control" required type="text" placeholder="Введите своё имя">
+                                </div>
+                                <div class="form__box"><span>телефоный номер</span>
+                                    <input class="form__control" required type="tel"
+                                           placeholder="Введите ваш телефоный номер">
+                                </div>
+                                <div class="form__box"><span>E-mail</span>
+                                    <input class="form__control" required type="email" placeholder="Введите вашу почту">
+                                </div>
+                            </form>
+                            <div class="textarea">
+                                <div class="textarea__subtitle">Чем мы можем вам помочь?</div>
+                                <textarea class="form__control" name="" cols="30" rows="9" required
+                                          placeholder="Оставьте своё сообщение"></textarea>
+                            </div>
+                        </div>
+                        <div class="button">
+                            <button class="btn">Отправить</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="maps">
+            <div class="container">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d5991.5279017807725!2d69.315589!3d41.335746!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xcd048ebd90409f45!2zNDHCsDIwJzA4LjciTiA2OcKwMTgnNTYuMSJF!5e0!3m2!1sru!2s!4v1643908008520!5m2!1sru!2s"
+                        width="100%" height="450" style="border:0" allowfullscreen="" loading="lazy"></iframe>
+            </div>
+        </section>
     </div>
+    <footer class="footer">
+        <div class="container">
+            <div class="footer__inner">
+                <div class="footer__logo">
+                    <img src="{{ url_for('static', filename='images/footerlogo.png') }}" alt="">
+                </div>
+                <ul class="footer__list">
+                    <li class="footer__list-title">НАВИГАЦИЯ</li>
+                    <li><a href="#" class="footer__list-link">На главную</a>
+                    </li>
+                    <li><a href="#" class="footer__list-link">Ассортименты</a>
+                    </li>
+                    <li><a href="#" class="footer__list-link">О нас</a>
+                    </li>
+                    <li><a href="#" class="footer__list-link">Контакты</a>
+                    </li>
+                </ul>
+                <ul class="footer__list">
+                    <li class="footer__list-title">Контакты</li>
+                    <li><a href="tel:+998994424241" class="footer__list-link">t. +99899 442 42 41</a>
+                    </li>
+                    <li><a href="mailto:E. infocom.@gmail.com" class="footer__list-link">E. infocom.@gmail.com</a>
+                    </li>
+                </ul>
+                <ul class="footer__list">
+                    <li class="footer__list-title">Соц-сети</li>
+                    <div class="social"><a href="#"><i class="fab fa-instagram"></i></a> <a href="#"><i
+                            class="fab fa-youtube"></i></a> <a href="#"><i class="fab fa-facebook-square"></i></a> <a
+                            href="#"><i class="fab fa-telegram-plane"></i></a>
+                    </div>
+                </ul>
+            </div>
+        </div>
+        <a href="#" class="footer__home">
+            <img src="{{ url_for('static', filename='images/svg/arrow.svg') }}" alt="">
+        </a>
+        <div class="footer__bottom">
+            <div class="container">
+                <p>2021 megapolis-tk.uz</p>
+            </div>
+        </div>
+    </footer>
+</div>
+<script></script>
+<script src="{{ url_for('static', filename='scripts/main.min.js') }}"></script>
 </body>
+<iframe src="https://docs.google.com/forms/d/e/1FAIpQLSe4iqnnK7fJpH2aPVJG-3Pq98W_w3lJQg7OZr3uEGScnJoVCA/viewform?embedded=true"
+        width="640" height="919" frameborder="0" marginheight="0" marginwidth="0">Загрузка…
+</iframe>
 </html>

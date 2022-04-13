@@ -1,0 +1,91 @@
+.footer {
+   background: #222;
+   &__inner {
+      display: flex;
+      align-items: flex-start;
+      padding: 100px 0;
+   }
+   &__logo {
+      margin-right: 100px;
+      img {
+         width: 100%;
+         margin-top: -10px;
+      }
+   }
+   &__list {
+      width: 33.3333%;
+      li {
+         margin-bottom: 15px;
+      }
+      .social i {
+         font-size: 30px;
+         color: var(--main-base);
+         margin-right: 20px;
+         transition: all 0.6s ease-in-out;
+         &:hover {
+            color: #e42546;
+            transform: rotateY(-360deg);
+         }
+      }
+      &-title {
+         font-weight: normal;
+         font-size: 18px;
+         line-height: 21px;
+         letter-spacing: -0.02em;
+         text-transform: capitalize;
+         color: #ffffff;
+         position: relative;
+         padding-bottom: 20px;
+         &::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            height: 2.5px;
+            width: 105px;
+            background: linear-gradient(
+               90deg,
+               rgba(17, 17, 18, 1) 21%,
+               rgba(94, 36, 36, 1) 52%,
+               rgba(163, 10, 10, 1) 86%
+            );
+            z-index: 2;
+         }
+      }
+      &-link {
+         font-weight: normal;
+         font-size: 18px;
+         line-height: 21px;
+         letter-spacing: -0.02em;
+         text-transform: capitalize;
+         color: #ffffff;
+         transition: all 0.3s ease-in-out;
+         &:hover {
+            color: #e42546;
+         }
+      }
+   }
+   &__bottom {
+      background: #e42546;
+      padding: 13px;
+      p {
+         font-weight: normal;
+         font-size: 16px;
+         line-height: 19px;
+         letter-spacing: -0.02em;
+         color: #ffffff;
+      }
+   }
+   &__home {
+      position: fixed;
+      bottom: 30%;
+      right: 8%;
+      transition: all 0.4s ease-in-out;
+      display: none;
+      z-index: 5;
+      img {
+         border-radius: 50%;
+         background: rgba(0, 0, 0, 0.3);
+      }
+   }
+}

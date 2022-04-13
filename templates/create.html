@@ -1,6 +1,29 @@
-{% extends 'base.html' %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <style>
+        .message {
+            padding: 10px;
+            margin: 5px;
+            background-color: #f3f3f3
+        }
+        nav a {
+            color: #d64161;
+            font-size: 3em;
+            margin-left: 50px;
+            text-decoration: none;
+        }
 
-{% block content %}
+
+    </style>
+</head>
+<body>
+<nav>
+    <a href="#">About</a>
+</nav>
+<hr>
+<div class="content">
     <h1>{% block title %} Add a New Door {% endblock %}</h1>
     <form method="post" enctype="multipart/form-data">
         <label for="name">Name</label>
@@ -41,4 +64,6 @@
 
         <button type="submit">Submit</button>
     </form>
-{% endblock %}
+</div>
+</body>
+</html>
