@@ -1,0 +1,103 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <section class="hero">
+        <img src="./images/assortiment/hero.jpg" alt="" class="hero-img">
+        <div class="box container">
+            <h2 class="box__title">Наша продукция</h2>
+            <div class="box__line"></div>
+            <form class="filter-selects" >
+                <select name="cat1" id="" class=" filter-select company">
+                    <option value="" selected disabled>Выберите компанию</option>
+                    <option value="1">Бульдорс</option>
+                    <option value="2" >Dara</option>
+                    <option value="3" >Грдиан</option>
+                </select>
+                <select name="cat2" id="" class="filter-select category">
+                    <option value="" selected disabled>Сортировать по цене</option>
+                    <option value="3">По возрастанию</option>
+                    <option value="4">По убыванию</option>
+                </select>
+                <button type="submit" class="apply">Применить</button>
+                <button type="button" class="reset">Отменить</button>
+            </form>
+        </div>
+    </section>
+    <section class="product-cards">
+        <div class="product-cards__inner container">
+            <div data-id="1" class="products-card__card" >
+                <div class="products-card__item">
+                    <p class="products-card__title">Палермо</p>
+                    <img class="products-card__img" src="images/assortiment/door1.png" alt="">
+                    <div class="products-card__title">22 700 000 сум</div>
+                </div>
+                <div class="products-card__content"><a href="singleProduct.html" class="products-card__text">Подробнее</a>
+                </div>
+            </div>
+            <div data-id="2" class="products-card__card">
+                <div class="products-card__item">
+                    <p class="products-card__title">Akfa</p>
+                    <img class="products-card__img" src="images/assortiment/door1.png" alt="">
+                    <div class="products-card__title">22 700 000 сум</div>
+                </div>
+                <div class="products-card__content"><a href="singleProduct.html" class="products-card__text">Подробнее</a>
+                </div>
+            </div>
+            <div data-id="3" class="products-card__card">
+                <div class="products-card__item">
+                    <p class="products-card__title">Палермо</p>
+                    <img class="products-card__img" src="images/assortiment/door1.png" alt="">
+                    <div class="products-card__title">222 700 000 сум</div>
+                </div>
+                <div class="products-card__content"><a href="singleProduct.html" class="products-card__text">Подробнее</a>
+                </div>
+            </div>
+            <div data-id="4" class="products-card__card">
+                <div class="products-card__item">
+                    <p class="products-card__title">Палермо</p>
+                    <img class="products-card__img" src="images/assortiment/door1.png" alt="">
+                    <div class="products-card__title">2 700 000 сум</div>
+                </div>
+                <div class="products-card__content"><a href="singleProduct.html" class="products-card__text">Подробнее</a>
+                </div>
+            </div>
+            <div data-id="1" class="products-card__card">
+                <div class="products-card__item">
+                    <p class="products-card__title">Палермо</p>
+                    <img class="products-card__img" src="images/assortiment/door1.png" alt="">
+                    <div class="products-card__title">22 700 000 сум</div>
+                </div>
+                <div class="products-card__content"><a href="singleProduct.html" class="products-card__text">Подробнее</a>
+                </div>
+            </div>
+            <div data-id="2" class="products-card__card">
+                <div class="products-card__item">
+                    <p class="products-card__title">Палермо</p>
+                    <img class="products-card__img" src="images/assortiment/door1.png" alt="">
+                    <div class="products-card__title">22 700 000 сум</div>
+                </div>
+                <div class="products-card__content"><a href="singleProduct.html" class="products-card__text">Подробнее</a>
+                </div>
+            </div>
+            <div data-id="3" class="products-card__card">
+                <div class="products-card__item">
+                    <p class="products-card__title">Палермо</p>
+                    <img class="products-card__img" src="images/assortiment/door1.png" alt="">
+                    <div class="products-card__title">22 700 000 сум</div>
+                </div>
+                <div class="products-card__content"><a href="singleProduct.html" class="products-card__text">Подробнее</a>
+                </div>
+            </div>
+            <div data-id="4" class="products-card__card">
+                <div class="products-card__item">
+                    <p class="products-card__title">Akfa</p>
+                    <img class="products-card__img" src="images/assortiment/door1.png" alt="">
+                    <div class="products-card__title">22 700 000 сум</div>
+                </div>
+                <div class="products-card__content"><a href="singleProduct.html" class="products-card__text">Подробнее</a>
+                </div>
+            </div>
+
+        </div>
+    </section>
+{% endblock %}

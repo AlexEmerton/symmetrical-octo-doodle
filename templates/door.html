@@ -16,7 +16,7 @@
     <header class="header">
         <div class="container">
             <div class="header__main">
-                <a href="#" class="logo">
+                <a href="{{ url_for('home') }}" class="logo">
                     <img src="{{ url_for('static', filename='images/logo.png') }}" alt="">
                 </a>
                 <nav class="nav__menu">
@@ -25,11 +25,11 @@
                                                                            src="{{ url_for('static', filename='images/svg/Vector.svg') }}"
                                                                            alt=""></a>
                             <ul class="sub-menu">
-                                <li><a class="sub-item" href="door.html">Двери</a>
+                                <li><a class="sub-item" href="{{ url_for('doors') }}">Двери</a>
                                 </li>
-                                <li><a class="sub-item" href="furniture.html">Мебель</a>
+                                <li><a class="sub-item" href="{{ url_for('furniture') }}">Мебель</a>
                                 </li>
-                                <li><a class="sub-item" href="camine.html">Камины</a>
+                                <li><a class="sub-item" href="{{ url_for('fireplace') }}">Камины</a>
                                 </li>
                             </ul>
                         </li>
@@ -60,12 +60,13 @@
                 </nav>
             </div>
         </div>
-    </header>
+</header>
     <div class="page-content">
         <section class="hero">
             <img src="./{{ url_for('static', filename='images/assortiment/hero.jpg') }}" alt="" class="hero-img">
             <div class="box container">
                 <h2 class="box__title">Наша продукция</h2>
+                <a href="{{ url_for('.download_file') }}">Нажмите здесь чтобы скачать каталог!</a>
                 <div class="box__line"></div>
                 <form class="filter-selects">
                     <select name="cat1" id="" class=" filter-select company">
@@ -96,73 +97,11 @@
                              alt="">
                         <div class="products-card__title">{{ row[2] }}</div>
                     </div>
-                    <div class="products-card__content"><a href="singleProduct.html" class="products-card__text">Подробнее</a>
+                    <div class="products-card__content"><a href="{{ url_for('edit_door', door_id=row[0]) }}" class="products-card__text">Изменить дверь</a>
                     </div>
                 </div>
                 {% endfor %}
                 {% endblock %}
-
-                <div data-id="1" class="products-card__card">
-                    <div class="products-card__item">
-                        <p class="products-card__title">Profil 1</p>
-                        <img class="products-card__img" src="{{ url_for('static', filename='images/doors/Bafa1.jpg') }}"
-                             alt="">
-                        <div class="products-card__title">920 000</div>
-                    </div>
-                    <div class="products-card__content"><a href="singleProduct.html" class="products-card__text">Подробнее</a>
-                    </div>
-                </div>
-                <div data-id="2" class="products-card__card">
-                    <div class="products-card__item">
-                        <p class="products-card__title">Crystal 1</p>
-                        <img class="products-card__img" src="{{ url_for('static', filename='images/doors/Bafa2.jpg') }}"
-                             alt="">
-                        <div class="products-card__title">1 260 000 сум</div>
-                    </div>
-                    <div class="products-card__content"><a href="singleProduct.html" class="products-card__text">Подробнее</a>
-                    </div>
-                </div>
-                <div data-id="3" class="products-card__card">
-                    <div class="products-card__item">
-                        <p class="products-card__title">Eco</p>
-                        <img class="products-card__img" src="{{ url_for('static', filename='images/doors/Bul1.png') }}"
-                             alt="">
-                        <div class="products-card__title">2 850 000 сум</div>
-                    </div>
-                    <div class="products-card__content"><a href="singleProduct.html" class="products-card__text">Подробнее</a>
-                    </div>
-                </div>
-                <div data-id="4" class="products-card__card">
-                    <div class="products-card__item">
-                        <p class="products-card__title">Standart 90</p>
-                        <img class="products-card__img" src="{{ url_for('static', filename='images/doors/Bul2.png') }}"
-                             alt="">
-                        <div class="products-card__title">3 700 000 сум</div>
-                    </div>
-                    <div class="products-card__content"><a href="singleProduct.html" class="products-card__text">Подробнее</a>
-                    </div>
-                </div>
-                <div data-id="1" class="products-card__card">
-                    <div class="products-card__item">
-                        <p class="products-card__title">Палермо</p>
-                        <img class="products-card__img" src="{{ url_for('static', filename='images/doors/Gar1.jpg') }}"
-                             alt="">
-                        <div class="products-card__title">22 700 000 сум</div>
-                    </div>
-                    <div class="products-card__content"><a href="singleProduct.html" class="products-card__text">Подробнее</a>
-                    </div>
-                </div>
-                <div data-id="2" class="products-card__card">
-                    <div class="products-card__item">
-                        <p class="products-card__title">Мистраль</p>
-                        <img class="products-card__img" src="{{ url_for('static', filename='images/doors/Gar2.jpg') }}"
-                             alt="">
-                        <div class="products-card__title">18 200 000 сум</div>
-                    </div>
-                    <div class="products-card__content"><a href="singleProduct.html" class="products-card__text">Подробнее</a>
-                    </div>
-                </div>
-
 
             </div>
         </section>
@@ -218,11 +157,11 @@
             productsCards.forEach(card => {
                 card.style.display="block"
             })
-           console.log(e.target.cat1.value) 
+           console.log(e.target.cat1.value)
             const cat1 = e.target.cat1.value;
             const cat2 = e.target.cat2.value;
             // const cat3 = e.target.cat3.value;
-            
+
             const whiteList = [cat1, cat2];
 
             productsCards.forEach(card => {
@@ -238,10 +177,10 @@
             productsCards.forEach(card => {
                 card.style.display="block"
             })
-            
+
         })
 
-        
+
 
 
 </script>

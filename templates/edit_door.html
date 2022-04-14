@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <section class="edit_door">
+        <h1>{% block title %} Add a New Door {% endblock %}</h1>
+        <form method="post" enctype="multipart/form-data">
+        <label for="name">Name</label>
+        <br>
+        <input type="text" name="name"
+               value="{{ door.name }}"
+               placeholder="Door name"
+               value="{{ request.form['name'] }}"></input>
+        <br>
+
+        <label for="price">Price</label>
+        <br>
+        <input type="text" name="price"
+               value="{{ door.price }}"
+               placeholder="Door price"
+               value="{{ request.form['price'] }}"></input>
+        <br>
+
+
+        <label for="size">Size</label>
+        <br>
+        <input type="text" name="size"
+               value="{{ door.size }}"
+               value="{{ request.form['size'] }}"></input>
+        <br>
+
+        <label for="colour">Color</label>
+        <br>
+        <input type="text" name="color"
+               placeholder="Door color"
+               value="{{ door.color }}"
+               value="{{ request.form['color'] }}"></input>
+        <br>
+
+        <label for="image">Image</label>
+        <br>
+        <input type="file" name="image" accept="image/*"
+               value="{{ request.form['file'] }}"></input>
+        <br>
+
+
+        <button type="submit">Submit</button>
+    </form>
+    </section>
+{% endblock %}
