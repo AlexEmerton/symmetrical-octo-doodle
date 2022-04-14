@@ -2,7 +2,6 @@ import logging
 import os
 
 import flask
-import requests
 from flask import request, jsonify, render_template, flash, url_for, send_file
 from werkzeug.exceptions import InternalServerError
 from werkzeug.utils import redirect, secure_filename
