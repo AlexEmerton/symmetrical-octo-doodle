@@ -9,4 +9,9 @@ def dict_factory(cursor, row):
 
 
 def get_from_env(var):
+    """
+    получаем данные из environment
+    :param var:
+    :return:
+    """
     return os.environ.get(var)

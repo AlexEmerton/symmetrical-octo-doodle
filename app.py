@@ -13,22 +13,27 @@ from utils.helpers import get_from_env, dict_factory
 
 UPLOAD_FOLDER = 'static'
 
+# получаем данные для соединения с БД
 DATABASE = get_from_env("DATABASE")
 HOST = get_from_env("DB_HOST")
 PORT = get_from_env("DB_PORT")
 USER = get_from_env("DB_USER")
 PASS = get_from_env("DB_PASS")
 
+# создаем соединение
 CONNECTION = Database(DATABASE, USER, PASS, HOST, PORT)
 
+# создаем приложение
 app = flask.Flask(__name__)
 app.config["DEBUG"] = True
 app.secret_key = 'eW96YXVr'
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
+# пишем логи в текстовый файл и в консоль
 logging.basicConfig(filename='record.log', level=logging.DEBUG,
                     format=f'%(asctime)s %(levelname)s %(name)s %(threadName)s : %(message)s')
 
+# создаем обьект для управления БД для дверей
 door_dao = DoorDao(CONNECTION)
 
 
@@ -102,6 +107,7 @@ def add_new_door():
         image = request.files['image']
 
         if image.filename != '':
+            # Сохраняем полученную картинку в папке с проектом
             filename = secure_filename(image.filename)
             image.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
 
@@ -143,6 +149,7 @@ def edit_door(door_id):
         image = request.files['image']
 
         if image.filename != '':
+            # Сохраняем полученную картинку в папке с проектом
             filename = secure_filename(image.filename)
             image.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
 
@@ -201,7 +208,8 @@ def add_door():
     else:
         return 'Content-Type not supported!'
 
-    # the ID field is set to 0 so that the MySQL auto_increment can magically apply a new ID itself
+    # MySQL сам обновляет ID рядов если мы устанавливаем его как 0
+    # важно что так происходит потому что в БД мы сказали что ID как auto_increment то есть увеличивается сам
     door = Door(0, data['name'], data['price'], data['size'], data['color'], data['image'])
     return door_dao.add(door)
 
@@ -242,5 +250,6 @@ def api_filter():
 
 
 if __name__ == '__main__':
-    # Threaded option to enable multiple instances for multiple user access support
+    # запускаем приложение на порте 5000
+    # важно что мы используем GUNICORN для запуска веб приложения в Heroku
     app.run(threaded=True, port=5000)

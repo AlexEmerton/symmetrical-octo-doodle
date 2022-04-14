@@ -1,4 +1,7 @@
 class Door:
+    """
+    Модель для обьектов типа "Дверь"
+    """
     id = None
     name = None
     price = None

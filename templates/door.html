@@ -33,7 +33,14 @@
                                 </li>
                             </ul>
                         </li>
-                        <li class="menu-item"><a href="#">О нас</a>
+                        <li class="menu-item"><a href="#">Админ функционал <img class="ml-1"
+                                                                           src="{{ url_for('static', filename='images/svg/Vector.svg') }}"
+                                                                           alt=""></a>
+                            <ul class="sub-menu">
+                                <li><a class="sub-item" href="{{ url_for('add_new_door') }}">Добавить дверь</a>
+                                </li>
+                            </ul>
+                        </li>
                         </li>
                         <li class="menu-item"><a href="#">Контакты</a>
                         </li>
